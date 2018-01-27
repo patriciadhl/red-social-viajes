@@ -39,7 +39,7 @@ document.getElementById('botonlogout').addEventListener('click', function() {
 authService.onAuthStateChanged(function(user) {
   if (user) {
     console.log('AuthStateChanged', user)
-    document.getElementById('datosuser').innerHTML = JSON.stringify(user);
+    document.getElementById('datosuser').innerHTML = JSON.displayName;
     document.getElementById('botonlogin').style.display = 'none';
     document.getElementById('botonlogout').style.display = 'block';
   } else {
