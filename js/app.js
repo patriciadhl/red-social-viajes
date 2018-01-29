@@ -9,42 +9,30 @@
  };
  firebase.initializeApp(config);
 
- // accedo al servicio de autenticación
-var authService = firebase.auth();
+ window.onload = inicializar;
 
 
-// manejador de eventos para loguearse
-document.getElementById('botonlogin').addEventListener('click', function() {
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('email');
-  authService.signInWithPopup(provider)
-        .then(function(result) {
-            // logueado con éxito
-            console.log('Hemos autenticado al usuario ', result.user);
-        })
-        .catch(function(error) {
-            // Fallo de login
-            console.log('Se ha encontrado un error:', error);
-        });
-})
+ function inicializar(){
+   var formAuth=document.getElementById('form-auth');
+   formAuth.addEventListener('submit',autentificar,false);
+ }
+
+ function autentificar(){
+   event.preventDefault();
+   var usuario=event.target.email.value;
+   var contraseña=event.target.password.value;
+
+   firebase.auth().signInWithEmailAndPassword(usuario,contraseña)
+    .then(function(result){
+      window.location.href="views/perfil.html"
+    })
+    .catch(function(error){
+     $('#modal1').modal('open');
+   });
+ }
 
 
-//manejador de eventos para cerrar sesión (logout)
-document.getElementById('botonlogout').addEventListener('click', function() {
-  authService.signOut()
-})
-
-
-// manejador de eventos para los cambios del estado de autenticación
-authService.onAuthStateChanged(function(user) {
-  if (user) {
-    console.log('AuthStateChanged', user)
-    document.getElementById('datosuser').innerHTML = JSON.stringify(user);
-    document.getElementById('botonlogin').style.display = 'none';
-    document.getElementById('botonlogout').style.display = 'block';
-  } else {
-    document.getElementById('datosuser').innerHTML = 'Sin usuario logueado...'
-    document.getElementById('botonlogin').style.display = 'block';
-    document.getElementById('botonlogout').style.display = 'none';
-  }
-});
+ $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
