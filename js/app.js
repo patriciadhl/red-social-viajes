@@ -24,13 +24,12 @@
 
    firebase.auth().signInWithEmailAndPassword(usuario,contraseña)
     .then(function(result){
-      window.location.href="views/perfil.html"
+      window.location.href="views/home.html"
     })
     .catch(function(error){
-     $('#modal1').modal('open');
+     $('#myModal').modal('open');
    });
  }
-
 
  $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
