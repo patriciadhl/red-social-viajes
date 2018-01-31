@@ -1,22 +1,64 @@
-.inicio-sesion{
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-*{
-    box-sizing: border-box;
+/*
+
+.white-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
-body{
-    font-family: "Sans-serif";
-    padding-top: 30%;
-    max-width: 1300px;
-    padding: 5%;
-}
+.white-logo-1 {
+  width: 30%;
+}*/
 
+
+.index-bg {
+  height: 100vh;
+	width: 100%;
+	margin:0;
+	background-image: url("../assets/images/splash1.jpg");
+  background-position: center center;
+	background-size: cover;
+
+
+}
 .container-fluid{
-    padding: 0px;
-    max-width: 1300px;
-    width: 100%;
+	height: 100vh;
+	width: 100%;
+	margin:0;
+	background-image: url("../assets/images/Login.jpeg");
+	background-size: cover;
+  background-size: 100% 100%;
+  color: white;
+	background-repeat: no-repeat;
+
 }
+#container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32vh;
+}
+
+#principal{
+  background-image: url('../assets/images/Login.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
 
 #logo{
   font-size: 300%;
@@ -37,9 +79,11 @@ body{
    cursor: pointer;
 }
 
-.form-control{
-    margin-top: 9%;
-    margin-left: 105px;
+.buttons{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 
@@ -172,11 +216,6 @@ text-align: center;
       margin-bottom: 10%;
   }
 
- .btn-primary{
-     background: rgb(209, 146, 190);
-     padding: 4%;
-     margin: 4%;
- }
 
  .btn-primary:hover{
      background: white;

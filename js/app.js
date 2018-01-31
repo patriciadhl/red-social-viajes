@@ -1,3 +1,10 @@
+/* Splash */
+$(document).ready(function() {
+  setTimeout(function() {
+    window.location.href = 'views/login.html';
+  }, 3000);
+});
+
 // Initialize Firebase
  var config = {
    apiKey: "AIzaSyDj-Gm2SLDYORx-9Qn30h-0WfrREgF-Gfw",
@@ -27,11 +34,6 @@
       window.location.href="views/home.html"
     })
     .catch(function(error){
-     $('#myModal').modal('open');
+     $('#myModal').modal();
    });
  }
-
- $(document).ready(function(){
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
-  });
